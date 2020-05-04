@@ -48,13 +48,10 @@ class Grid extends Component {
         if (arrayGrid[1] != "white") {
             let player = arrayGrid[1];
             if ((arrayGrid[1] == arrayGrid[2]) && (arrayGrid[2] == arrayGrid[3])) {
-                console.log('top row');
                 return player;
             } else if ((arrayGrid[1] == arrayGrid[4]) && (arrayGrid[4] == arrayGrid[7])) {
-                console.log('left column');
                 return player;
             } else if ((arrayGrid[1] == arrayGrid[5]) && (arrayGrid[5] == arrayGrid[9])) {
-                console.log('top left diagonal');
                 return player;
             }
         }
@@ -62,7 +59,6 @@ class Grid extends Component {
         if (arrayGrid[2] != "white") {
             let player = arrayGrid[2];
             if ((arrayGrid[2] == arrayGrid[5]) && (arrayGrid[5] == arrayGrid[8])) {
-                console.log('middle column');
                 return player;
             }
         }
@@ -70,10 +66,8 @@ class Grid extends Component {
         if (arrayGrid[3] != "white") {
             let player = arrayGrid[3];
             if ((arrayGrid[3] == arrayGrid[6]) && (arrayGrid[6] == arrayGrid[9])) {
-                console.log('right column');
                 return player;
             } else if ((arrayGrid[3] == arrayGrid[5]) && (arrayGrid[5] == arrayGrid[7])) {
-                console.log('top right diagonal');
                 return player;
             }
         }
@@ -81,7 +75,6 @@ class Grid extends Component {
         if (arrayGrid[4] != "white") {
             let player = arrayGrid[4];
             if ((arrayGrid[4] == arrayGrid[5]) && (arrayGrid[5] == arrayGrid[6])) {
-                console.log('middle row');
                 return player;
             }
         }
@@ -89,17 +82,14 @@ class Grid extends Component {
         if (arrayGrid[7] != "white") {
             let player = arrayGrid[7];
             if ((arrayGrid[7] == arrayGrid[8]) && (arrayGrid[8] == arrayGrid[9])) {
-                console.log('middle row');
                 return player;
             }
         }
 
         if (filled == 9) {
-            console.log('filled - draw?')
             return "DRAW";
         }
 
-        console.log('not over');
         return null;
     }
 
