@@ -1,0 +1,25 @@
+#grid {
+    width: 300px;
+    height: 300px;
+    color: red;
+    display: block;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    display: inline-block;
+}
+
+.white-square {
+    background-color: white;
+}
+
+.red-square {
+    background-color: red;
+}
+
+.blue-square {
+    background-color: blue;
+}

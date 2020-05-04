@@ -12,5 +12,5 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./components/App');
+require('./components/Game');
 import 'bootstrap/dist/css/bootstrap.min.css';
