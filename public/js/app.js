@@ -66625,8 +66625,12 @@ var Feedback = /*#__PURE__*/function (_Component) {
   _createClass(Feedback, [{
     key: "render",
     value: function render() {
-      console.log(this.props.winner);
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !this.props.gameOver ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "It is ", this.props.player, "'s turn") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "The Game is Over!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " ", this.props.winner && this.props.winner != "DRAW" ? ' The winner is ' + this.props.winner : 'The game is a draw!')));
+      var style = {
+        marginTop: "20px"
+      };
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: style
+      }, !this.props.gameOver ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "It is ", this.props.player, "'s turn") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "The Game is Over!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " ", this.props.winner && this.props.winner != "DRAW" ? ' The winner is ' + this.props.winner : 'The game is a draw!')));
     }
   }]);
 
@@ -66739,7 +66743,8 @@ var Game = /*#__PURE__*/function (_Component) {
         className: "card-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Grid_Grid__WEBPACK_IMPORTED_MODULE_2__["default"], {
         player: this.state.player,
-        turnCallback: this.turnHandler
+        turnCallback: this.turnHandler,
+        gameOver: this.state.gameOver
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Feedback_Feedback__WEBPACK_IMPORTED_MODULE_3__["default"], {
         player: this.state.player,
         gameOver: this.state.gameOver,
@@ -66889,7 +66894,7 @@ var Grid = /*#__PURE__*/function (_Component) {
   _createClass(Grid, [{
     key: "takeTurn",
     value: function takeTurn(square, index) {
-      if (!square.filled) {
+      if (!square.filled && !this.props.gameOver) {
         var newSquare = {
           position: square.position,
           player: this.props.player.toLowerCase(),

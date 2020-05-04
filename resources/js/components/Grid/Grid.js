@@ -25,7 +25,7 @@ class Grid extends Component {
     }
 
     takeTurn(square, index) {
-        if (!square.filled) {
+        if (!square.filled && !this.props.gameOver) {
             let newSquare = {position: square.position, player: this.props.player.toLowerCase(), filled:true}
             let squares = this.state.squares;
             squares[index] = newSquare;

@@ -47,6 +47,7 @@ class Game extends Component {
                                 <Grid
                                     player={this.state.player}
                                     turnCallback={this.turnHandler}
+                                    gameOver={this.state.gameOver}
                                 />
                                 <Feedback
                                     player={this.state.player}
