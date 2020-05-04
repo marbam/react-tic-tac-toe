@@ -66993,7 +66993,8 @@ var Grid = /*#__PURE__*/function (_Component) {
           className: "square ".concat(square.player + '-square'),
           onClick: function onClick() {
             return _this2.takeTurn(square, index);
-          }
+          },
+          key: index
         });
       }));
     }

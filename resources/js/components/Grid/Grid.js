@@ -110,6 +110,7 @@ class Grid extends Component {
                     <div
                         className={`square ${square.player+'-square'}`}
                         onClick={() => this.takeTurn(square, index)}
+                        key={index}
                     >
                     </div>
                 )}
