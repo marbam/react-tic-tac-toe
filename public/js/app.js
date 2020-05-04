@@ -66619,13 +66619,14 @@ var Feedback = /*#__PURE__*/function (_Component) {
   function Feedback() {
     _classCallCheck(this, Feedback);
 
-    return _super.call(this); // this.optionHandler = this.optionHandler.bind(this);
+    return _super.call(this);
   }
 
   _createClass(Feedback, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !this.props.gameOver ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "It is ", this.props.player, "'s turn") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "The Game is Over!"));
+      console.log(this.props.winner);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, !this.props.gameOver ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "It is ", this.props.player, "'s turn") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "The Game is Over!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " ", this.props.winner && this.props.winner != "DRAW" ? ' The winner is ' + this.props.winner : 'The game is a draw!')));
     }
   }]);
 
@@ -66704,6 +66705,7 @@ var Game = /*#__PURE__*/function (_Component) {
       var translate = [];
       translate['red'] = "Red";
       translate['blue'] = "Blue";
+      translate['DRAW'] = "DRAW";
 
       if (!winner && winner != "DRAW") {
         var nextPlayer = 'Blue';
@@ -66900,13 +66902,13 @@ var Grid = /*#__PURE__*/function (_Component) {
           squares: squares,
           countFilled: filled
         });
-        var winner = this.checkWinner();
+        var winner = this.checkWinner(filled);
         this.props.turnCallback(filled, winner);
       }
     }
   }, {
     key: "checkWinner",
-    value: function checkWinner() {
+    value: function checkWinner(filled) {
       var arrayGrid = [];
       this.state.squares.map(function (square, index) {
         return arrayGrid[index + 1] = square.player;
@@ -66966,7 +66968,7 @@ var Grid = /*#__PURE__*/function (_Component) {
         }
       }
 
-      if (this.state.countFilled == 9) {
+      if (filled == 9) {
         console.log('filled - draw?');
         return "DRAW";
       }

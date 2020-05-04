@@ -5,15 +5,17 @@ class Feedback extends Component {
 
     constructor () {
         super();
-        // this.optionHandler = this.optionHandler.bind(this);
     }
 
     render() {
+        console.log(this.props.winner);
         return (
             <div>
                 {!this.props.gameOver ?
                 <p>It is {this.props.player}'s turn</p>
-                : <p>The Game is Over!</p>}
+                : <p>The Game is Over!
+                    <span> {this.props.winner && this.props.winner != "DRAW" ? ' The winner is '+this.props.winner : 'The game is a draw!'}</span>
+                </p>}
 
             </div>
         );

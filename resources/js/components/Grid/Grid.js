@@ -34,12 +34,12 @@ class Grid extends Component {
                 squares: squares,
                 countFilled: filled
             });
-            let winner = this.checkWinner();
+            let winner = this.checkWinner(filled);
             this.props.turnCallback(filled, winner);
         }
     }
 
-    checkWinner() {
+    checkWinner(filled) {
         var arrayGrid = [];
         this.state.squares.map((square, index) =>
             arrayGrid[index+1] = square.player
@@ -94,7 +94,7 @@ class Grid extends Component {
             }
         }
 
-        if (this.state.countFilled == 9) {
+        if (filled == 9) {
             console.log('filled - draw?')
             return "DRAW";
         }
