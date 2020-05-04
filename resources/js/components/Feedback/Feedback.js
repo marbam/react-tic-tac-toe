@@ -8,9 +8,10 @@ class Feedback extends Component {
     }
 
     render() {
-        console.log(this.props.winner);
+
+        const style = {marginTop: "20px"};
         return (
-            <div>
+            <div style={style}>
                 {!this.props.gameOver ?
                 <p>It is {this.props.player}'s turn</p>
                 : <p>The Game is Over!
